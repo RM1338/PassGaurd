@@ -47,8 +47,8 @@ PassGuard/
 │   └── viewUsers.png
 ├── Project Documentation/
 │   └── URK25CS1106 - (CodeGen PPS Micro Project PPT).pdf
-├── passgaurd.c
-├── passgaurd.exe
+├── passguard.c
+├── passguard.exe
 ├── README.md
 └── users.dat
 ```
