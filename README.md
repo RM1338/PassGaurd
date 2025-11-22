@@ -175,8 +175,8 @@ See the [LICENSE](LICENSE) file.
   LinkedIn: [Joshua Sibichan Scariya](https://www.linkedin.com/in/joshua-sibichan-scariya-141488380/)
 
 - **Aditilakshmanan** – Medical & Educational Pages  
-  GitHub: [BuildwJoshh](https://github.com/)  
-  LinkedIn: [](https://www.linkedin.com/in//)
+  GitHub: [Aditi-Lakshmanan](https://github.com/Aditi-Lakshmanan)  
+  LinkedIn: [](https://www.linkedin.com/in/aditi-lakshmanan-a60696288/)
 
 - **Yogesh** – Research & Donation Page  
   GitHub: [Yogesh](https://github.com/)  
@@ -196,15 +196,15 @@ Email: joshuasibichan7@gmail.com
 GitHub: [BuildwJoshh](https://github.com/BuildwJoshh)  
 LinkedIn: [Joshua Sibichan Scariya](https://linkedin.com/in/joshua-sibichan-scariya-141488380/)  
 
-**Aditilakshmanan**  
+**Aditi Lakshmanan**  
 Email:   
-GitHub: [](https://github.com/)  
-LinkedIn: [](https://www.linkedin.com/in//)
+GitHub: [Aditi-Lakshmanan](https://github.com/Aditi-Lakshmanan)  
+LinkedIn: [Aditi Lakshmanan](https://www.linkedin.com/in/aditi-lakshmanan-a60696288/)
 
 **Yogesh**  
 Email: yogesh@gmail.com  
-GitHub: [Yogesh](https://github.com/SarveshAK7786)  
-LinkedIn: [Yogesh](https://linkedin.com/in/sarvesh-a-b27010377)
+GitHub: [Yogesh](https://github.com/Yogesh)  
+LinkedIn: [Yogesh](https://linkedin.com/in/yogesh/)
 
 ---
 
