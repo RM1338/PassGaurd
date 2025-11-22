@@ -1,8 +1,8 @@
-# PassVault 🔐
+# PassGaurd 🔐
 
-**PassVault** is a multi-category crowdfunding platform that enables users to create and support campaigns across various causes including Medical, Educational, Business and Emergency needs.
+**PassGaurd** is a multi-category crowdfunding platform that enables users to create and support campaigns across various causes including Medical, Educational, Business and Emergency needs.
 
-![PassVault Banner](./githubAssets/banner.jpg)
+![PassGaurd Banner](./githubAssets/banner.jpg)
 
 ---
 
