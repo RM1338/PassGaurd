@@ -174,14 +174,26 @@ gcc main.c -o passguard -lraylib -lm -lpthread -ldl -lrt -lX11
 
 ## 👀 Quick Peek
 
-### Homepage
-![Homepage]()
+### Main Menu Screen
+![Main Menu](./githubAssets/Main%20Menu.png)
 
-### Campaign Listing
-![Campaign Listing]()
+### User Registration Screen
+![User Registration](./githubAssets/userRegistration.gif)
 
-### Donation Page
-![Donation Page]()
+### User Login Screen
+![User Login](./githubAssets/userLogin.gif)
+
+### View Users Screen
+![View Users](./githubAssets/viewUsers.png)
+
+### Search Users Screen
+![Search Users](./githubAssets/searchUsers.gif)
+
+### Error Message
+![Error Message](./githubAssets/errorMessage.gif)
+
+### Save & Load Users Screen
+![Save & Load Users](./githubAssets/saveloadUsers.gif)
 
 ---
 
