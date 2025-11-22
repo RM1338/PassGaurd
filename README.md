@@ -141,7 +141,7 @@ gcc main.c -o passguard -lraylib -lm -lpthread -ldl -lrt -lX11
 - Edit color themes and UI components directly in the `main.c` file or your raylib settings.
 
 ### Adjusting Password Settings
-- Change encryption key, minimum password length, or validation requirements by modifying constants at the top of `main.c`:
+- Change encryption key, minimum password length, or validation requirements by modifying constants at the top of `main.c`:  
     ```
     #define ENCRYPTION_KEY 5
     #define MIN_PASSWORD_LENGTH 6
