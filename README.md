@@ -1,6 +1,6 @@
 # PassGaurd 🔐
 
-**PassGaurd** is a multi-category crowdfunding platform that enables users to create and support campaigns across various causes including Medical, Educational, Business and Emergency needs.
+**PassGaurd** is a local password management application designed for learning and educational purposes. It allows users to securely register, encrypt, and manage their passwords using a simple Caesar cipher algorithm, all through a user-friendly GUI built with C and raylib.
 
 ![PassGaurd Banner](./githubAssets/banner.jpg)
 
@@ -8,14 +8,15 @@
 
 ## 🌟 Features
 
-- **Multi-Category Support**: Medical, Educational, Business and Emergency campaigns
-- **Campaign Management**: Create, browse, and support campaigns with detailed progress tracking
-- **Secure Donations**: Integrated payment gateway support (ready for Stripe, PayPal, Razorpay)
-- **Responsive Design**: Built with Bootstrap 5 for mobile-first, responsive layouts
-- **Milestone-Based Funding**: Transparent fund release based on campaign milestones
-- **User Authentication**: Sign-in and registration system
-- **Campaign Discovery**: Browse trending and featured campaigns
-- **Individual Campaign Pages**: Detailed pages with updates, donations, and organizer info
+- **Secure User Registration**: Register users with validated usernames and encrypted passwords
+- **Password Encryption**: All passwords stored using Caesar Cipher (educational focus)
+- **User Authentication**: Secure login using encrypted password verification
+- **Persistent Storage**: User data saved and loaded from a local file (`users.dat`)
+- **User Management**: Register, login, view, search, and sort user accounts
+- **Input Validation**: Enforces minimum password length and prevents invalid entries
+- **Interactive GUI**: Clean, user-friendly graphical interface powered by raylib
+- **Status & Feedback Messages**: Real-time success/error messages for actions
+- **Simple Sorting & Searching**: Organize and find users easily with built-in algorithms
 
 ---
 
