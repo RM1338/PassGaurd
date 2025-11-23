@@ -197,7 +197,7 @@ GitHub: [BuildwJoshh](https://github.com/BuildwJoshh)
 LinkedIn: [Joshua Sibichan Scariya](https://linkedin.com/in/joshua-sibichan-scariya-141488380/)  
 
 **Aditi Lakshmanan**  
-Email:   
+Email: aditilakshamanan@gmail.com  
 GitHub: [Aditi-Lakshmanan](https://github.com/Aditi-Lakshmanan)  
 LinkedIn: [Aditi Lakshmanan](https://www.linkedin.com/in/aditi-lakshmanan-a60696288/)
 
