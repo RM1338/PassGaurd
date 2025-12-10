@@ -8,8 +8,8 @@
 #define ENCRYPTION_KEY 5
 #define MAX_USERS 10
 #define MIN_PASSWORD_LENGTH 6
-#define SCREEN_WIDTH 1000
-#define SCREEN_HEIGHT 700
+#define SCREEN_WIDTH 1280
+#define SCREEN_HEIGHT 720
 
 typedef struct {
     char username[50];
@@ -281,17 +281,31 @@ int isButtonPressed(Rectangle bounds) {
 
 // Draw Main Menu
 void drawMainMenu() {
-    DrawText("PASSWORD ENCRYPTION & CREDENTIAL MANAGER", 150, 50, 30, DARKBLUE);
-    DrawText("Cybersecurity Micro Project", 350, 90, 20, GRAY);
+    int titleWidth = MeasureText("PASSWORD ENCRYPTION & CREDENTIAL MANAGER", 30);
+    DrawText("PASSWORD ENCRYPTION & CREDENTIAL MANAGER", 
+             (SCREEN_WIDTH - titleWidth) / 2, 50, 30, DARKBLUE);
+    
+    int subtitleWidth = MeasureText("Cybersecurity Micro Project", 20);
+    DrawText("Cybersecurity Micro Project", 
+             (SCREEN_WIDTH - subtitleWidth) / 2, 90, 20, GRAY);
 
-    Rectangle btn1 = {150, 150, 250, 60};
-    Rectangle btn2 = {450, 150, 250, 60};
-    Rectangle btn3 = {750, 150, 200, 60};
-    Rectangle btn4 = {150, 240, 250, 60};
-    Rectangle btn5 = {450, 240, 250, 60};
-    Rectangle btn6 = {750, 240, 200, 60};
-    Rectangle btn7 = {150, 330, 250, 60};
-    Rectangle btn8 = {450, 330, 250, 60};
+    float btnWidth = 200;
+    float btnHeight = 60;
+    float spacing = 20;
+    float totalWidth = (btnWidth * 3) + (spacing * 2);
+    float startX = (SCREEN_WIDTH - totalWidth) / 2;
+    float startY = 180;
+
+    Rectangle btn1 = {startX, startY, btnWidth, btnHeight};
+    Rectangle btn2 = {startX + btnWidth + spacing, startY, btnWidth, btnHeight};
+    Rectangle btn3 = {startX + (btnWidth + spacing) * 2, startY, btnWidth, btnHeight};
+    
+    Rectangle btn4 = {startX, startY + btnHeight + spacing, btnWidth, btnHeight};
+    Rectangle btn5 = {startX + btnWidth + spacing, startY + btnHeight + spacing, btnWidth, btnHeight};
+    Rectangle btn6 = {startX + (btnWidth + spacing) * 2, startY + btnHeight + spacing, btnWidth, btnHeight};
+    
+    Rectangle btn7 = {startX, startY + (btnHeight + spacing) * 2, btnWidth, btnHeight};
+    Rectangle btn8 = {startX + btnWidth + spacing, startY + (btnHeight + spacing) * 2, btnWidth, btnHeight};
 
     drawButton(btn1, "Register User", DARKGREEN);
     drawButton(btn2, "Login", DARKBLUE);
@@ -311,22 +325,38 @@ void drawMainMenu() {
     if (isButtonPressed(btn7)) loadFromFile();
     if (isButtonPressed(btn8)) CloseWindow();
 
-    DrawText(TextFormat("Total Users: %d", user_count), 150, 450, 25, DARKBLUE);
-    DrawText(TextFormat("Encryption Key: %d", ENCRYPTION_KEY), 150, 490, 25, DARKBLUE);
+    char infoText1[50];
+    char infoText2[50];
+    snprintf(infoText1, sizeof(infoText1), "Total Users: %d", user_count);
+    snprintf(infoText2, sizeof(infoText2), "Encryption Key: %d", ENCRYPTION_KEY);
+    
+    int info1Width = MeasureText(infoText1, 25);
+    int info2Width = MeasureText(infoText2, 25);
+    
+    DrawText(infoText1, (SCREEN_WIDTH - info1Width) / 2, 520, 25, DARKBLUE);
+    DrawText(infoText2, (SCREEN_WIDTH - info2Width) / 2, 560, 25, DARKBLUE);
 }
 
 // Draw Register Screen
 void drawRegisterScreen() {
-    DrawText("REGISTER NEW USER", 350, 50, 30, DARKGREEN);
+    int titleWidth = MeasureText("REGISTER NEW USER", 30);
+    DrawText("REGISTER NEW USER", (SCREEN_WIDTH - titleWidth) / 2, 80, 30, DARKGREEN);
 
-    DrawText("Username:", 200, 150, 25, BLACK);
-    Rectangle usernameBox = {200, 190, 600, 40};
+    float boxWidth = 600;
+    float centerX = (SCREEN_WIDTH - boxWidth) / 2;
+
+    int labelWidth1 = MeasureText("Username:", 25);
+    DrawText("Username:", (SCREEN_WIDTH - labelWidth1) / 2, 180, 25, BLACK);
+    
+    Rectangle usernameBox = {centerX, 220, boxWidth, 40};
     DrawRectangleRec(usernameBox, activeInput == 1 ? LIGHTGRAY : WHITE);
     DrawRectangleLinesEx(usernameBox, 2, activeInput == 1 ? DARKGREEN : GRAY);
-    DrawText(inputUsername, 210, 200, 20, BLACK);
+    DrawText(inputUsername, centerX + 10, 230, 20, BLACK);
 
-    DrawText("Password:", 200, 260, 25, BLACK);
-    Rectangle passwordBox = {200, 300, 600, 40};
+    int labelWidth2 = MeasureText("Password:", 25);
+    DrawText("Password:", (SCREEN_WIDTH - labelWidth2) / 2, 290, 25, BLACK);
+    
+    Rectangle passwordBox = {centerX, 330, boxWidth, 40};
     DrawRectangleRec(passwordBox, activeInput == 2 ? LIGHTGRAY : WHITE);
     DrawRectangleLinesEx(passwordBox, 2, activeInput == 2 ? DARKGREEN : GRAY);
 
@@ -336,7 +366,7 @@ void drawRegisterScreen() {
         masked[i] = '*';
     }
     masked[i] = '\0';
-    DrawText(masked, 210, 310, 20, BLACK);
+    DrawText(masked, centerX + 10, 340, 20, BLACK);
 
     if (isButtonPressed(usernameBox)) activeInput = 1;
     if (isButtonPressed(passwordBox)) activeInput = 2;
@@ -364,8 +394,13 @@ void drawRegisterScreen() {
         }
     }
 
-    Rectangle registerBtn = {300, 400, 150, 50};
-    Rectangle backBtn = {500, 400, 150, 50};
+    float btnWidth = 150;
+    float btnSpacing = 20;
+    float totalBtnWidth = (btnWidth * 2) + btnSpacing;
+    float btnStartX = (SCREEN_WIDTH - totalBtnWidth) / 2;
+
+    Rectangle registerBtn = {btnStartX, 430, btnWidth, 50};
+    Rectangle backBtn = {btnStartX + btnWidth + btnSpacing, 430, btnWidth, 50};
 
     drawButton(registerBtn, "Register", DARKGREEN);
     drawButton(backBtn, "Back", GRAY);
@@ -381,16 +416,24 @@ void drawRegisterScreen() {
 
 // Draw Login Screen
 void drawLoginScreen() {
-    DrawText("USER LOGIN", 400, 50, 30, DARKBLUE);
+    int titleWidth = MeasureText("USER LOGIN", 30);
+    DrawText("USER LOGIN", (SCREEN_WIDTH - titleWidth) / 2, 80, 30, DARKBLUE);
 
-    DrawText("Username:", 200, 150, 25, BLACK);
-    Rectangle usernameBox = {200, 190, 600, 40};
+    float boxWidth = 600;
+    float centerX = (SCREEN_WIDTH - boxWidth) / 2;
+
+    int labelWidth1 = MeasureText("Username:", 25);
+    DrawText("Username:", (SCREEN_WIDTH - labelWidth1) / 2, 180, 25, BLACK);
+    
+    Rectangle usernameBox = {centerX, 220, boxWidth, 40};
     DrawRectangleRec(usernameBox, activeInput == 1 ? LIGHTGRAY : WHITE);
     DrawRectangleLinesEx(usernameBox, 2, activeInput == 1 ? DARKBLUE : GRAY);
-    DrawText(inputUsername, 210, 200, 20, BLACK);
+    DrawText(inputUsername, centerX + 10, 230, 20, BLACK);
 
-    DrawText("Password:", 200, 260, 25, BLACK);
-    Rectangle passwordBox = {200, 300, 600, 40};
+    int labelWidth2 = MeasureText("Password:", 25);
+    DrawText("Password:", (SCREEN_WIDTH - labelWidth2) / 2, 290, 25, BLACK);
+    
+    Rectangle passwordBox = {centerX, 330, boxWidth, 40};
     DrawRectangleRec(passwordBox, activeInput == 2 ? LIGHTGRAY : WHITE);
     DrawRectangleLinesEx(passwordBox, 2, activeInput == 2 ? DARKBLUE : GRAY);
 
@@ -400,7 +443,7 @@ void drawLoginScreen() {
         masked[i] = '*';
     }
     masked[i] = '\0';
-    DrawText(masked, 210, 310, 20, BLACK);
+    DrawText(masked, centerX + 10, 340, 20, BLACK);
 
     if (isButtonPressed(usernameBox)) activeInput = 1;
     if (isButtonPressed(passwordBox)) activeInput = 2;
@@ -428,8 +471,13 @@ void drawLoginScreen() {
         }
     }
 
-    Rectangle loginBtn = {300, 400, 150, 50};
-    Rectangle backBtn = {500, 400, 150, 50};
+    float btnWidth = 150;
+    float btnSpacing = 20;
+    float totalBtnWidth = (btnWidth * 2) + btnSpacing;
+    float btnStartX = (SCREEN_WIDTH - totalBtnWidth) / 2;
+
+    Rectangle loginBtn = {btnStartX, 430, btnWidth, 50};
+    Rectangle backBtn = {btnStartX + btnWidth + btnSpacing, 430, btnWidth, 50};
 
     drawButton(loginBtn, "Login", DARKBLUE);
     drawButton(backBtn, "Back", GRAY);
@@ -445,32 +493,37 @@ void drawLoginScreen() {
 
 // Draw View Screen
 void drawViewScreen() {
-    DrawText("ALL REGISTERED USERS", 350, 30, 30, DARKPURPLE);
+    int titleWidth = MeasureText("ALL REGISTERED USERS", 30);
+    DrawText("ALL REGISTERED USERS", (SCREEN_WIDTH - titleWidth) / 2, 50, 30, DARKPURPLE);
 
     if (user_count == 0) {
-        DrawText("No users registered yet!", 350, 300, 25, GRAY);
+        int msgWidth = MeasureText("No users registered yet!", 25);
+        DrawText("No users registered yet!", (SCREEN_WIDTH - msgWidth) / 2, 300, 25, GRAY);
     } else {
-        DrawText("No.", 50, 100, 20, BLACK);
-        DrawText("Username", 150, 100, 20, BLACK);
-        DrawText("Encrypted Password", 350, 100, 20, BLACK);
-        DrawText("Hash", 650, 100, 20, BLACK);
+        float tableWidth = 900;
+        float startX = (SCREEN_WIDTH - tableWidth) / 2;
+        
+        DrawText("No.", startX, 120, 20, BLACK);
+        DrawText("Username", startX + 100, 120, 20, BLACK);
+        DrawText("Encrypted Password", startX + 300, 120, 20, BLACK);
+        DrawText("Hash", startX + 600, 120, 20, BLACK);
 
-        DrawLine(50, 130, 950, 130, BLACK);
+        DrawLine(startX, 150, startX + tableWidth, 150, BLACK);
 
         int i;
         char decrypted[MAX_PASSWORD_LENGTH] = {0};
         for (i = 0; i < user_count && i < 10; i++) {
             if (users[i].is_active) {
                 caesarDecrypt(users[i].encrypted_password, decrypted, ENCRYPTION_KEY);
-                DrawText(TextFormat("%d", i + 1), 50, 150 + i * 40, 20, BLACK);
-                DrawText(users[i].username, 150, 150 + i * 40, 20, BLACK);
-                DrawText(users[i].encrypted_password, 350, 150 + i * 40, 20, BLACK);
-                DrawText(TextFormat("%d", hashPassword(decrypted)), 650, 150 + i * 40, 20, BLACK);
+                DrawText(TextFormat("%d", i + 1), startX, 170 + i * 40, 20, BLACK);
+                DrawText(users[i].username, startX + 100, 170 + i * 40, 20, BLACK);
+                DrawText(users[i].encrypted_password, startX + 300, 170 + i * 40, 20, BLACK);
+                DrawText(TextFormat("%d", hashPassword(decrypted)), startX + 600, 170 + i * 40, 20, BLACK);
             }
         }
     }
 
-    Rectangle backBtn = {425, 600, 150, 50};
+    Rectangle backBtn = {(SCREEN_WIDTH - 150) / 2, 600, 150, 50};
     drawButton(backBtn, "Back", GRAY);
 
     if (isButtonPressed(backBtn)) currentScreen = 0;
@@ -478,13 +531,19 @@ void drawViewScreen() {
 
 // Draw Search Screen
 void drawSearchScreen() {
-    DrawText("SEARCH USER", 400, 50, 30, ORANGE);
+    int titleWidth = MeasureText("SEARCH USER", 30);
+    DrawText("SEARCH USER", (SCREEN_WIDTH - titleWidth) / 2, 80, 30, ORANGE);
 
-    DrawText("Enter Username:", 200, 150, 25, BLACK);
-    Rectangle searchBox = {200, 190, 600, 40};
+    float boxWidth = 600;
+    float centerX = (SCREEN_WIDTH - boxWidth) / 2;
+
+    int labelWidth = MeasureText("Enter Username:", 25);
+    DrawText("Enter Username:", (SCREEN_WIDTH - labelWidth) / 2, 180, 25, BLACK);
+    
+    Rectangle searchBox = {centerX, 220, boxWidth, 40};
     DrawRectangleRec(searchBox, activeInput == 1 ? LIGHTGRAY : WHITE);
     DrawRectangleLinesEx(searchBox, 2, activeInput == 1 ? ORANGE : GRAY);
-    DrawText(searchUsername, 210, 200, 20, BLACK);
+    DrawText(searchUsername, centerX + 10, 230, 20, BLACK);
 
     if (isButtonPressed(searchBox)) activeInput = 1;
 
@@ -502,8 +561,13 @@ void drawSearchScreen() {
         if (len > 0) searchUsername[len - 1] = '\0';
     }
 
-    Rectangle searchBtn = {300, 300, 150, 50};
-    Rectangle backBtn = {500, 300, 150, 50};
+    float btnWidth = 150;
+    float btnSpacing = 20;
+    float totalBtnWidth = (btnWidth * 2) + btnSpacing;
+    float btnStartX = (SCREEN_WIDTH - totalBtnWidth) / 2;
+
+    Rectangle searchBtn = {btnStartX, 330, btnWidth, 50};
+    Rectangle backBtn = {btnStartX + btnWidth + btnSpacing, 330, btnWidth, 50};
 
     drawButton(searchBtn, "Search", ORANGE);
     drawButton(backBtn, "Back", GRAY);
@@ -541,12 +605,12 @@ int main() {
             Color msgColor = (messageType == 1) ? DARKGREEN : RED;
             Color bgColor = (messageType == 1) ? ColorAlpha(GREEN, 0.3f) : ColorAlpha(RED, 0.3f);
 
-            Rectangle msgBox = {200, SCREEN_HEIGHT - 80, 600, 50};
+            Rectangle msgBox = {(SCREEN_WIDTH - 600) / 2, SCREEN_HEIGHT - 80, 600, 50};
             DrawRectangleRec(msgBox, bgColor);
             DrawRectangleLinesEx(msgBox, 2, msgColor);
 
             int textWidth = MeasureText(messageText, 20);
-            DrawText(messageText, 200 + (600 - textWidth) / 2, SCREEN_HEIGHT - 65, 20, msgColor);
+            DrawText(messageText, (SCREEN_WIDTH - textWidth) / 2, SCREEN_HEIGHT - 65, 20, msgColor);
         }
 
         EndDrawing();

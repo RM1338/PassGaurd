@@ -19,7 +19,7 @@
 - **Simple Sorting & Searching**: Organize and find users easily with built-in algorithms
 
 ---
-s
+
 ## 🚀 Technologies Used
 
 - **C (ISO C99)** – Core logic, password encryption and user management
