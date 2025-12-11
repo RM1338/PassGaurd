@@ -1,217 +1,364 @@
-# PassGaurd 🔐
+# 🔐 PassGuard - Local Password Manager
 
-**PassGaurd** is a local password management application designed for learning and educational purposes. It allows users to securely register, encrypt, and manage their passwords using a simple Caesar cipher algorithm, all through a user-friendly GUI built with C and raylib.
+![PassGuard Banner](./githubAssets/banner.jpg)
 
-![PassGaurd Banner](./githubAssets/banner.jpg)
+<div align="center">
+  
+![PassGuard](https://img.shields.io/badge/PassGuard-Password_Manager-blue?style=for-the-badge&logo=security)
+![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
+![Raylib](https://img.shields.io/badge/Raylib-Framework-red?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Complete-success?style=for-the-badge)
 
----
+**A local password management application designed for learning and educational purposes with Caesar cipher encryption and interactive GUI.**
 
-## 🌟 Features
-
-- **Secure User Registration**: Register users with validated usernames and encrypted passwords
-- **Password Encryption**: All passwords stored using Caesar Cipher (educational focus)
-- **User Authentication**: Secure login using encrypted password verification
-- **Persistent Storage**: User data saved and loaded from a local file (`users.dat`)
-- **User Management**: Register, login, view, search, and sort user accounts
-- **Input Validation**: Enforces minimum password length and prevents invalid entries
-- **Interactive GUI**: Clean, user-friendly graphical interface powered by raylib
-- **Status & Feedback Messages**: Real-time success/error messages for actions
-- **Simple Sorting & Searching**: Organize and find users easily with built-in algorithms
+[Features](#-features) • [Demo](#-demo) • [Installation](#-installation) • [Tech Stack](#-tech-stack) • [Project Structure](#-project-structure)
 
 ---
 
-## 🚀 Technologies Used
+</div>
 
-- **C (ISO C99)** – Core logic, password encryption and user management
-- **raylib** – Lightweight C graphics library for GUI and easy rendering
-- **Standard C File I/O** – Save and load user data for persistence
-- **GCC/Clang** – Compiler support for building on any major OS
-- **Makefile** – Simplified build and execution
+## 📸 Demo
+
+<div align="center">
+
+### Main Menu
+  
+![Main Menu](./githubAssets/Main%20Menu.png)
 
 ---
+
+### User Registration
+
+![User Registration](./githubAssets/userRegistration.gif)
+
+*Register new users with validated usernames and encrypted passwords*
+
+---
+
+### User Login
+
+![User Login](./githubAssets/userLogin.gif)
+
+*Secure authentication with encrypted password verification*
+
+---
+
+### View Users
+
+![View Users](./githubAssets/viewUsers.png)
+
+*Display all registered users with their encrypted information*
+
+---
+
+### Search Users
+
+![Search Users](./githubAssets/searchUsers.gif)
+
+*Quickly find specific users with the search functionality*
+
+---
+
+### Error Handling
+
+![Error Message](./githubAssets/errorMessage.gif)
+
+*Real-time validation and user-friendly error messages*
+
+---
+
+### Save & Load Users
+
+![Save & Load Users](./githubAssets/loadsaveUsers.gif)
+
+*Persistent storage with automatic save and load functionality*
+
+</div>
+
+## ✨ Features
+
+### 🔒 Security Features
+- **Caesar Cipher Encryption** - All passwords encrypted using Caesar cipher algorithm
+- **Secure Authentication** - Login verification with encrypted password matching
+- **Input Validation** - Enforces minimum password length and prevents invalid entries
+- **Local Storage Only** - All data stored locally for maximum privacy
+
+### 👤 User Management
+- **User Registration** - Create accounts with username and password
+- **User Login** - Secure authentication system
+- **View All Users** - Display complete user database
+- **Search Users** - Quick search by username
+- **Sort Users** - Organize users alphabetically
+- **Persistent Storage** - Data saved in `users.dat` file
+
+### 🎨 Interactive GUI
+- **Clean Interface** - User-friendly graphical interface powered by Raylib
+- **Real-time Feedback** - Status and error messages for all actions
+- **Responsive Design** - Smooth transitions and button interactions
+- **Visual Feedback** - Color-coded messages (success/error)
+
+### 📊 Additional Features
+- **Automatic Save/Load** - Data persistence between sessions
+- **Error Handling** - Comprehensive error checking and user feedback
+- **Multiple Actions** - Register, login, view, search, and sort operations
+- **Educational Focus** - Built for learning encryption and C programming concepts
+
+## 🚀 Tech Stack
+
+- **C (ISO C99)** - Core programming language
+- **Raylib** - Lightweight graphics library for GUI
+- **Standard C File I/O** - File operations for data persistence
+- **GCC/Clang** - Compiler support
+- **Caesar Cipher** - Encryption algorithm implementation
+
+## ⚡ Getting Started
+
+### Prerequisites
+- **C Compiler** (GCC, Clang, or MSVC)
+- **Raylib** (version 4.0 or higher)
+- **Make** (optional)
+
+### Installation
+
+#### Linux/macOS
+
+```bash
+# Clone the repository
+git clone https://github.com/RM1338/PassGuard.git
+cd PassGuard
+
+# Install Raylib (if not already installed)
+# On Ubuntu/Debian:
+sudo apt-get install libraylib-dev
+
+# On macOS (using Homebrew):
+brew install raylib
+
+# Compile
+gcc passguard.c -o passguard -lraylib -lm
+
+# Run
+./passguard
+```
+
+#### Windows
+
+```bash
+# Clone the repository
+git clone https://github.com/RM1338/PassGuard.git
+cd PassGuard
+
+# Compile (using MinGW)
+gcc passguard.c -o passguard.exe -lraylib -lopengl32 -lgdi32 -lwinmm
+
+# Run
+passguard.exe
+```
+
+#### Using Make (Optional)
+
+```bash
+# If Makefile is available
+make
+
+# Run
+./passguard
+```
+
+### Download Pre-built Binary
+Check the [Releases](https://github.com/RM1338/PassGuard/releases) page for pre-compiled executables.
 
 ## 📁 Project Structure
 
 ```
 PassGuard/
 ├── .vscode/
-│   └── launch.json
-├── githubAssets/
-│   ├── banner.jpg
-│   ├── errorMessage.gif
-│   ├── loadsaveUsers.gif
-│   ├── Main Menu.png
-│   ├── searchUsers.gif
-│   ├── userLogin.gif
-│   ├── userRegistration.gif
-│   └── viewUsers.png
+│   └── launch.json              # VS Code debug configuration
+├── githubAssets/                # Demo images and GIFs
+│   ├── banner.jpg               # Project banner
+│   ├── Main Menu.png            # Main menu screenshot
+│   ├── userRegistration.gif    # Registration demo
+│   ├── userLogin.gif            # Login demo
+│   ├── viewUsers.png            # View users screenshot
+│   ├── searchUsers.gif          # Search demo
+│   ├── errorMessage.gif         # Error handling demo
+│   └── loadsaveUsers.gif        # Save/Load demo
 ├── Project Documentation/
 │   └── URK25CS1106 - (CodeGen PPS Micro Project PPT).pdf
-├── passguard.c
-├── passguard.exe
-├── README.md
-└── users.dat
+├── passguard.c                  # Main source code
+├── passguard.exe                # Compiled executable (Windows)
+├── users.dat                    # User data file (auto-generated)
+└── README.md                    # This file
 ```
 
----
+## 🎯 How It Works
 
-## 🛠️ Installation & Setup
-
-### Prerequisites
-- GCC or compatible C compiler
-- raylib library installed on your system
-
-### Steps
-
-1. **Clone the repository**
-
-```
-git clone https://github.com/YourUsername/PassGuard.git
-cd PassGuard
+### Caesar Cipher Encryption
+```c
+// Encryption function
+char encryptChar(char ch, int key) {
+    if (isalpha(ch)) {
+        char base = isupper(ch) ? 'A' : 'a';
+        return (ch - base + key) % 26 + base;
+    }
+    return ch;
+}
 ```
 
+### User Registration Flow
+1. Enter username (validated for uniqueness)
+2. Enter password (minimum 6 characters)
+3. Password encrypted using Caesar cipher
+4. User data saved to `users.dat`
+5. Success message displayed
 
-2. **Compile the project**
-
-```
-gcc main.c -o passguard -lraylib -lm -lpthread -ldl -lrt -lX11
-```
-*(Adjust compile flags if required for your OS and raylib version.)*
-
-
-3. **Run the application**
-
-```
-./passguard
-```
-
-
----
+### Authentication Process
+1. Enter username
+2. Enter password
+3. Password encrypted and compared with stored hash
+4. Access granted/denied based on match
 
 ## 🎨 Customization
 
-### Colors & UI
-- Edit color themes and UI components directly in the `main.c` file or your raylib settings.
+### Changing Encryption Key
+Edit the encryption key constant in `passguard.c`:
+```c
+#define ENCRYPTION_KEY 5  // Change to any integer value
+```
 
-### Adjusting Password Settings
-- Change encryption key, minimum password length, or validation requirements by modifying constants at the top of `main.c`:  
-    ```
-    #define ENCRYPTION_KEY 5
-    #define MIN_PASSWORD_LENGTH 6
-    ```
+### Modifying Password Requirements
+```c
+#define MIN_PASSWORD_LENGTH 6  // Minimum password length
+#define MAX_PASSWORD_LENGTH 20 // Maximum password length
+```
 
-### Adding Users (for testing)
-- Run the application, use the 'Register' feature, and input unique usernames and passwords that meet criteria.
+### UI Customization
+Modify colors and UI elements in the Raylib drawing functions:
+```c
+#define PRIMARY_COLOR RAYWHITE
+#define SECONDARY_COLOR DARKBLUE
+#define SUCCESS_COLOR GREEN
+#define ERROR_COLOR RED
+```
 
+### Adding Features
+The modular code structure makes it easy to add:
+- Password strength checker
+- Multiple encryption algorithms
+- Export/import functionality
+- User profile pictures
+- Password reset functionality
 
-## 🔮 Future Enhancements
+## 🔧 Troubleshooting
 
-- Database integration (SQLite, MySQL) for large-scale user storage  
-- Backend integration (Node.js, Python, etc.) for multi-user support  
-- Advanced encryption (bcrypt, Argon2, SHA-256) for stronger password protection  
-- Web or mobile app (React Native / Flutter) – build for Android/iOS devices  
-- Multi-factor authentication (MFA) for increased security  
-- User authorization levels (e.g., admin tools)  
-- Password strength meter and checker  
-- Password generator for secure random passwords  
-- Activity logging and audit trails for user actions  
-- Session management and automatic logout  
-- Email notifications (for registration, password changes, account activity)  
-- UI enhancements: modern design, light/dark theme  
-- Import/export password database (CSV/JSON backup)  
-- Cloud sync for cross-device password management  
-- Accessibility and localization (multi-language support)  
-- Integration with browser extensions or autofill services  
+### Common Issues
 
----
+**Raylib not found:**
+```bash
+# Make sure Raylib is installed
+pkg-config --libs raylib
+```
 
-## 👀 Quick Peek
+**Compilation errors:**
+```bash
+# Try specifying full paths to libraries
+gcc passguard.c -o passguard -I/usr/include/raylib -L/usr/lib -lraylib -lm
+```
 
-### Main Menu Screen
-![Main Menu](./githubAssets/Main%20Menu.png)
+**users.dat permission denied:**
+```bash
+# Check file permissions
+chmod 644 users.dat
+```
 
-### User Registration Screen
-![User Registration](./githubAssets/userRegistration.gif)
+## 🐛 Known Issues
 
-### User Login Screen
-![User Login](./githubAssets/userLogin.gif)
+- Caesar cipher is for educational purposes only (not cryptographically secure)
+- Maximum 100 users supported in current implementation
+- No password recovery mechanism (by design for learning purposes)
+- GUI may not scale properly on very high DPI displays
 
-### View Users Screen
-![View Users](./githubAssets/viewUsers.png)
+## 🚀 Future Enhancements
 
-### Search Users Screen
-![Search Users](./githubAssets/searchUsers.gif)
+- [ ] Database integration (SQLite, MySQL)
+- [ ] Advanced encryption (AES, bcrypt, Argon2)
+- [ ] Password strength meter
+- [ ] Password generator
+- [ ] Multi-factor authentication
+- [ ] Session management
+- [ ] Export/import functionality
+- [ ] User authorization levels
+- [ ] Activity logging
+- [ ] Email notifications
+- [ ] Web-based interface
+- [ ] Mobile app version
+- [ ] Cloud synchronization
+- [ ] Browser extension integration
 
-### Error Message
-![Error Message](./githubAssets/errorMessage.gif)
+## 📚 Learning Outcomes
 
-### Save & Load Users Screen
-![Save & Load Users](./githubAssets/loadsaveUsers.gif)
-
----
+This project teaches:
+- **C Programming** - File I/O, structs, functions
+- **Encryption Basics** - Caesar cipher implementation
+- **GUI Development** - Raylib library usage
+- **Data Persistence** - File-based storage
+- **Input Validation** - User input sanitization
+- **Software Design** - Modular code structure
 
 ## 🤝 Contributing
 
-Currently not accepting contributions (college project).  
-Feel free to clone the repo and experiment.
+Currently not accepting contributions (college project). Feel free to fork and experiment!
 
----
+## 📝 License
 
-## 📄 License
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
-This project is licensed under the MIT License.  
-See the [LICENSE](LICENSE) file.
+## ⚠️ Security Notice
 
----
+**Important:** This project uses Caesar cipher encryption for **educational purposes only**. Caesar cipher is NOT cryptographically secure and should NEVER be used for real password management. For production applications, use industry-standard encryption like AES-256, bcrypt, or Argon2.
 
-## 👥 Authors
+## 🙏 Acknowledgments
 
-- **Ronel Abraham Mathew** – Landing Page, Start a Campaign Page & UI/UX  
+- **Raylib** - Amazing graphics library by [Ramon Santamaria](https://github.com/raysan5)
+- **Karunya Institute of Technology and Sciences** - Academic support
+- **CodeGen Team** - Collaborative development and testing
+- **C Programming Community** - Documentation and resources
+
+## 👥 Team
+
+- **Ronel Abraham Mathew** - Lead Developer  
   GitHub: [RM1338](https://github.com/RM1338)  
   LinkedIn: [Ronel Abraham Mathew](https://linkedin.com/in/ronelm)
 
-- **Joshua Sibichan Scariya** – Sign In/Up, Business & Emergency Pages, Interactive JS  
+- **Joshua Sibichan Scariya** - Developer  
   GitHub: [BuildwJoshh](https://github.com/BuildwJoshh)  
   LinkedIn: [Joshua Sibichan Scariya](https://www.linkedin.com/in/joshua-sibichan-scariya-141488380/)
 
-- **Aditilakshmanan** – Medical & Educational Pages  
+- **Aditi Lakshmanan** - Developer  
   GitHub: [Aditi-Lakshmanan](https://github.com/Aditi-Lakshmanan)  
-  LinkedIn: [](https://www.linkedin.com/in/aditi-lakshmanan-a60696288/)
+  LinkedIn: [Aditi Lakshmanan](https://www.linkedin.com/in/aditi-lakshmanan-a60696288/)
 
-- **Yogesh** – Research & Donation Page  
+- **Yogesh** - Developer  
   GitHub: [Yogesh](https://github.com/)  
   LinkedIn: [Yogesh](https://linkedin.com/in/)
 
----
-
-## 📞 Contact
+## 📧 Contact
 
 **Ronel Abraham Mathew**  
 Email: rma80070@gmail.com  
 GitHub: [RM1338](https://github.com/RM1338)  
 LinkedIn: [Ronel Abraham Mathew](https://linkedin.com/in/ronelm)
 
-**Joshua Sibichan Scariya**  
-Email: joshuasibichan7@gmail.com  
-GitHub: [BuildwJoshh](https://github.com/BuildwJoshh)  
-LinkedIn: [Joshua Sibichan Scariya](https://linkedin.com/in/joshua-sibichan-scariya-141488380/)  
-
-**Aditi Lakshmanan**  
-Email: aditilakshamanan@gmail.com  
-GitHub: [Aditi-Lakshmanan](https://github.com/Aditi-Lakshmanan)  
-LinkedIn: [Aditi Lakshmanan](https://www.linkedin.com/in/aditi-lakshmanan-a60696288/)
-
-**Yogesh**  
-Email: yogesh@gmail.com  
-GitHub: [Yogesh](https://github.com/Yogesh)  
-LinkedIn: [Yogesh](https://linkedin.com/in/yogesh/)
+**Project Link:** [https://github.com/RM1338/PassGuard](https://github.com/RM1338/PassGuard)
 
 ---
 
-## ⭐ Show Your Support
-
-Give a ⭐️ if this project helped you!
-
----
-
+<div align="center">
+  
 Made with ❤️ by the CodeGen Team
+
+If you found this project helpful, consider giving it a ⭐!
+
+**Built for Learning | Not for Production Use**
+
+</div>
